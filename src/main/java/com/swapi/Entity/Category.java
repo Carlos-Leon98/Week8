@@ -1,4 +1,4 @@
-package com.swapi;
+package com.swapi.Entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

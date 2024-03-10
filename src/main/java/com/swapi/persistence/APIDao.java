@@ -1,9 +1,10 @@
-package persistence;
+package com.swapi.persistence;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.swapi.Response;
-
+import com.swapi.Entity.Response;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.util.Properties;
 import javax.ws.rs.client.*;
@@ -11,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 
 public class APIDao {
 
+    private final Logger logger = LogManager.getLogger(this.getClass());
     private Properties properties;
 
     public APIDao() {
@@ -22,11 +24,9 @@ public class APIDao {
         try {
             properties.load (this.getClass().getResourceAsStream("/API.properties"));
         } catch (IOException ioe) {
-            System.out.println("Database.loadProperties()...Cannot load the properties file");
-            ioe.printStackTrace();
+            logger.error("Database.loadProperties()...Cannot load the properties file");
         } catch (Exception e) {
-            System.out.println("Database.loadProperties()..." + e);
-            e.printStackTrace();
+            logger.error("Database.loadProperties()..." + e);
         }
 
     }
@@ -46,8 +46,7 @@ public class APIDao {
         try {
             product = mapper.readValue(response, Response.class);
         } catch (JsonProcessingException e) {
-            // Add a logger
-            throw new RuntimeException(e);
+            logger.error("Error processing JSON: " + e);
         }
 
         return product;

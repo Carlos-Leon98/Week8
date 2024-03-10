@@ -1,6 +1,7 @@
 package persistence;
 
-import com.swapi.Response;
+import com.swapi.Entity.Response;
+import com.swapi.persistence.APIDao;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

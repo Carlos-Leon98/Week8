@@ -1,7 +1,8 @@
-package com.swapi;
+package com.swapi.Entity;
 
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.swapi.Entity.Category;
 
 public class Response{
 
