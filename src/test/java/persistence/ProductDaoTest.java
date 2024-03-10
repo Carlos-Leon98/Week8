@@ -1,14 +1,14 @@
 package persistence;
 
 import com.swapi.Entity.Response;
-import com.swapi.persistence.APIDao;
+import com.swapi.persistence.ProductDao;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class APIDaoTest {
+class ProductDaoTest {
 
-    APIDao productDao = new APIDao();
+    ProductDao productDao = new ProductDao();
 
     @Test
     void getProductByIdSuccess() {

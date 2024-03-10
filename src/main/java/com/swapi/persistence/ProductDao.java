@@ -10,12 +10,12 @@ import java.util.Properties;
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
 
-public class APIDao {
+public class ProductDao {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
     private Properties properties;
 
-    public APIDao() {
+    public ProductDao() {
         loadProperties();
     }
 
