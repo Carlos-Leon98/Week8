@@ -10,15 +10,27 @@ import java.util.Properties;
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
 
+/**
+ * This class represents a Data Access Object (DAO) for product
+ * information from a remote API.
+ * @author cleonrivas
+ */
 public class ProductDao {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
     private Properties properties;
 
+    /**
+     * Default constructor for the ProductDao class.
+     * Initializes the properties.
+     */
     public ProductDao() {
         loadProperties();
     }
 
+    /**
+     * Loads properties file into the class.
+     */
     private void loadProperties() {
         properties = new Properties();
         try {
@@ -31,6 +43,13 @@ public class ProductDao {
 
     }
 
+    /**
+     * Retrieves product information from the remote
+     * API based on the provided product ID.
+     *
+     * @param id The ID of the product to retrieve.
+     * @return A Response object containing product information.
+     */
     public Response getProductById(int id) {
         String url = properties.getProperty("productsURL");
         Client client = ClientBuilder.newClient();
